@@ -1,11 +1,8 @@
 package eu.tutorials.mywishlistapp
 
-import android.widget.Toast
 import androidx.compose.animation.animateColorAsState
-import androidx.compose.animation.core.animateFloatAsState
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
-import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
@@ -32,15 +29,11 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.compose.material.*
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.ui.draw.scale
 import androidx.navigation.NavController
-import eu.tutorials.mywishlistapp.data.DummyWish
 import eu.tutorials.mywishlistapp.data.Wish
 
 @OptIn(ExperimentalMaterialApi::class)
@@ -49,7 +42,6 @@ fun HomeView(
     navController: NavController,
     viewModel: WishViewModel
 ){
-    val context = LocalContext.current
     val scaffoldState = rememberScaffoldState()
     Scaffold(
         backgroundColor = MaterialTheme.colorScheme.background,
@@ -61,7 +53,6 @@ fun HomeView(
                 contentColor = Color.White,
                 backgroundColor = Color.Black,
                 onClick = {
-                    Toast.makeText(context, "FAButton Clicked", Toast.LENGTH_LONG).show()
                     navController.navigate(Screen.AddScreen.route + "/0L")
 
                 }) {
