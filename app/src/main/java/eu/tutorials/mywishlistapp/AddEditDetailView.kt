@@ -142,18 +142,18 @@ fun WishTextField(
     OutlinedTextField(
         value = value,
         onValueChange = onValueChanged,
-        label = { Text(text = label, color = Color.Black) },
+        label = { Text(text = label, color = MaterialTheme.colorScheme.onBackground) },
         modifier = Modifier.fillMaxWidth(),
         keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Text),
         colors = TextFieldDefaults.outlinedTextFieldColors(
             // using predefined Color
-            textColor = Color.Black,
+            textColor = MaterialTheme.colorScheme.onBackground,
             // using our own colors in Res.Values.Color
-            focusedBorderColor = colorResource(id = R.color.black),
-            unfocusedBorderColor = colorResource(id = R.color.black),
-            cursorColor = colorResource(id = R.color.black),
-            focusedLabelColor = colorResource(id = R.color.black),
-            unfocusedLabelColor = colorResource(id = R.color.black),
+            focusedBorderColor = colorResource(id = R.color.app_bar_color),
+            unfocusedBorderColor = MaterialTheme.colorScheme.surface,
+            cursorColor = MaterialTheme.colorScheme.onBackground,
+            focusedLabelColor = MaterialTheme.colorScheme.onBackground,
+            unfocusedLabelColor = Color.White,
         )
 
 
