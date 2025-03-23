@@ -13,6 +13,7 @@ import androidx.compose.material.OutlinedTextField
 import androidx.compose.material.Scaffold
 import androidx.compose.material.TextFieldDefaults
 import androidx.compose.material.rememberScaffoldState
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
@@ -55,6 +56,7 @@ fun AddEditDetailView(
     }
 
     Scaffold(
+        backgroundColor = MaterialTheme.colorScheme.background,
         topBar = {AppBarView(title =
     if(id != 0L) stringResource(id = R.string.update_wish)
     else stringResource(id = R.string.add_wish)

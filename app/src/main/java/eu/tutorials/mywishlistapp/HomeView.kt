@@ -37,6 +37,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.compose.material.*
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.ui.draw.scale
 import androidx.navigation.NavController
 import eu.tutorials.mywishlistapp.data.DummyWish
@@ -51,6 +52,7 @@ fun HomeView(
     val context = LocalContext.current
     val scaffoldState = rememberScaffoldState()
     Scaffold(
+        backgroundColor = MaterialTheme.colorScheme.background,
         scaffoldState = scaffoldState,
         topBar = {AppBarView(title= "WishList")},
         floatingActionButton = {
@@ -127,7 +129,7 @@ fun WishItem(wish: Wish, onClick: () -> Unit){
             onClick()
         },
         elevation = 10.dp,
-        backgroundColor = Color.White
+        backgroundColor = MaterialTheme.colorScheme.surface
     ) {
         Column(modifier = Modifier.padding(16.dp)){
             Text(text = wish.title, fontWeight = FontWeight.ExtraBold)
