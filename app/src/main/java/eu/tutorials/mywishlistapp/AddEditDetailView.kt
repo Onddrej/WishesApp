@@ -23,6 +23,7 @@ import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalSoftwareKeyboardController
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.TextStyle
@@ -46,6 +47,9 @@ fun AddEditDetailView(
     }
     val scope = rememberCoroutineScope()
     val scaffoldState = rememberScaffoldState()
+    val keyboardController = LocalSoftwareKeyboardController.current
+
+
     if (id != 0L){
         val wish = viewModel.getAWishById(id).collectAsState(initial = Wish(0L, "", ""))
         viewModel.wishTitleState = wish.value.title
@@ -107,14 +111,18 @@ fun AddEditDetailView(
                         )
                         snackMessage.value = "Wish has been created"
                     }
+
+                    navController.navigateUp()
+
                 }else{
                     //
                     snackMessage.value = "Enter fields to create a wish"
+                    scope.launch {
+                        keyboardController?.hide()
+                        scaffoldState.snackbarHostState.showSnackbar(snackMessage.value)
+                    }
                 }
-                scope.launch {
-                    //scaffoldState.snackbarHostState.showSnackbar(snackMessage.value)
-                    navController.navigateUp()
-                }
+
 
             }){
                 Text(
