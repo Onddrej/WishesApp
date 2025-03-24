@@ -33,6 +33,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.material.*
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.ui.res.stringResource
 import androidx.navigation.NavController
 import eu.tutorials.mywishlistapp.data.Wish
 
@@ -46,7 +47,7 @@ fun HomeView(
     Scaffold(
         backgroundColor = MaterialTheme.colorScheme.background,
         scaffoldState = scaffoldState,
-        topBar = {AppBarView(title= "My Wishes")},
+        topBar = {AppBarView(title= stringResource(id = R.string.home_view_title))},
         floatingActionButton = {
             FloatingActionButton(
                 modifier = Modifier.padding(all = 20.dp),
@@ -86,7 +87,10 @@ fun HomeView(
                         )
                         val alignment = Alignment.CenterEnd
                         Box(
-                            Modifier.fillMaxSize().background(color).padding(horizontal = 20.dp),
+                            Modifier
+                                .fillMaxSize()
+                                .background(color)
+                                .padding(horizontal = 20.dp),
                             contentAlignment = alignment
                         ){
                             Icon(Icons.Default.Delete,

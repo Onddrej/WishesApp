@@ -2,4 +2,5 @@
     <string name="app_name">Wishes</string>
     <string name="update_wish">Update Wish</string>
     <string name="add_wish">Add Wish</string>
+    <string name="home_view_title">My Wishes</string>
 </resources>
