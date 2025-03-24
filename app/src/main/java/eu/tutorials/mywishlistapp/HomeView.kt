@@ -46,7 +46,7 @@ fun HomeView(
     Scaffold(
         backgroundColor = MaterialTheme.colorScheme.background,
         scaffoldState = scaffoldState,
-        topBar = {AppBarView(title= "WishList")},
+        topBar = {AppBarView(title= "My Wishes")},
         floatingActionButton = {
             FloatingActionButton(
                 modifier = Modifier.padding(all = 20.dp),
